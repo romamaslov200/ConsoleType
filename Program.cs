@@ -17,6 +17,7 @@ namespace ConsoleType
         {
             while(true)
             {
+                start:
                 ProverkaType proverkaType = new ProverkaType();
 
                 min = proverkaType.Proverka(min, "Введите мин число =>");
@@ -24,6 +25,8 @@ namespace ConsoleType
                 max = proverkaType.Proverka(max, "Введите макс число =>");
 
                 Console.Write($"\nМин:{min} Макс:{max} \n\n");
+
+                if( min > max ) { Console.WriteLine("Минимальное число не может быть больше максимального!\n"); goto start; }
 
                 Console.Write($"\n{rand.Next(min, max)}\n\n");
             }
